@@ -5,6 +5,7 @@ import { Table, Button, Modal, Spinner, Row, Col } from "react-bootstrap";
 import { AiOutlineWallet, AiOutlineEdit, AiFillDelete } from "react-icons/ai";
 import { Card, Container, Label } from "../../../../ui";
 import ProgrammingModal from "../../../../components/forms/programming";
+import Filter from "../../../../components/forms/filterProgramming";
 
 const Programming = (props) => {
   const { programmings, remove, loading } = props;
@@ -101,6 +102,9 @@ const Programming = (props) => {
               </Table>
             </Container>
           </Card>
+        </Col>
+        <Col xs={6} md={3}>
+          <Filter />
         </Col>
       </Row>
     </Container>

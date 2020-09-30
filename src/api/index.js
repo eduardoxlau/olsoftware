@@ -2,6 +2,10 @@ export const removeElements = (elements, id) => {
   return elements.filter((el) => el.id !== id);
 };
 
+export const filterElements = (elements, item) => {
+  return elements.filter((el) => el.user !== item.user);
+};
+
 export const addElements = (elements, item) => {
   const elementExist = elements.find((el) => el.id == item.id);
   return elementExist

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { call, put, takeEvery } from "redux-saga/effects";
-import { submit, remove } from "./actions";
+import { submit, remove, filtrar } from "./actions";
 
 const timeout = async () => {
   await new Promise((resolve) => setTimeout(() => resolve(), 1500));
@@ -28,7 +28,20 @@ function* removeProgramming(action) {
     yield put(remove.failure());
   }
 }
+
+function* filtrarProgramming(action) {
+  const { values } = action.payload;
+  yield put(filtrar.request());
+  try {
+    yield call(timeout);
+    yield put(filtrar.success(values));
+    yield put(filtrar.fulfill(values));
+  } catch (e) {
+    yield put(filtrar.failure());
+  }
+}
 export function* programmingWatcherSaga() {
   yield takeEvery(submit.TRIGGER, submitProgramming);
   yield takeEvery(remove.TRIGGER, removeProgramming);
+  yield takeEvery(filtrar.TRIGGER, filtrarProgramming);
 }

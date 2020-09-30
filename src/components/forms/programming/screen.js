@@ -54,7 +54,9 @@ const Programming = (props) => {
       <Modal.Footer>
         {error && (
           <Alert onClose={() => isError(false)} dismissible variant="danger">
-            <Label fontSize={14}>Credenciales Incorrectos</Label>
+            <Label fontSize={14}>
+              Ha ocurrido un error, intente nuevamente
+            </Label>
           </Alert>
         )}
         <Button
