@@ -10,5 +10,5 @@ export const remove = createRoutine(REMOVE_PROGRAMMING);
 export const submit = createRoutine(SUBMIT_PROGRAMMING);
 export const bindedProgramming = bindRoutineToReduxForm(submit);
 
-export const filtrar = createRoutine(FILTRAR_PROGRAMMING);
-export const bindedFiltrarProgramming = bindRoutineToReduxForm(filtrar);
+export const filter = createRoutine(FILTRAR_PROGRAMMING);
+export const bindedFiltrarProgramming = bindRoutineToReduxForm(filter);

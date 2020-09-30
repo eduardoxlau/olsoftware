@@ -1,6 +1,7 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
 import { BsCircleFill } from "react-icons/bs";
+import PropTypes from "prop-types";
 import { Sidebar, Label, Container } from "../../ui";
 import { MenuSidebar } from "../../utils/menu";
 
@@ -28,7 +29,12 @@ const Navbar = ({ hide }) => {
 
         {MenuSidebar.map((item) => {
           return (
-            <Container display="flex" alignItems="center" marginLeft={-10}>
+            <Container
+              display="flex"
+              key={item.id}
+              alignItems="center"
+              marginLeft={-10}
+            >
               <Nav.Item>
                 <Nav.Link href="/home">
                   {item.icon}
@@ -47,5 +53,13 @@ const Navbar = ({ hide }) => {
       </Sidebar>
     </>
   );
+};
+
+Navbar.propTypes = {
+  hide: PropTypes.bool,
+};
+
+Navbar.defaultProps = {
+  hide: false,
 };
 export default Navbar;

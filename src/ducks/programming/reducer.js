@@ -1,8 +1,10 @@
-import { submit, remove, filtrar } from "./actions";
+import { submit, remove, filter } from "./actions";
 import { addElements, removeElements, filterElements } from "../../api";
 // eslint-disable-next-line import/prefer-default-export
-export const programming = (state = { data: [], filter: [] }, action) => {
-  console.log(action);
+export const programming = (
+  state = { data: [], filter: [], isFilter: false },
+  action
+) => {
   switch (action.type) {
     case submit.TRIGGER:
       return { ...state, loading: true, error: false };
@@ -11,7 +13,8 @@ export const programming = (state = { data: [], filter: [] }, action) => {
         ...state,
         loading: false,
         data: addElements(state.data, action.payload),
-        filtrar: [],
+        filter: [],
+        isFilter: false,
         error: false,
       };
     case submit.FAILURE:
@@ -30,7 +33,8 @@ export const programming = (state = { data: [], filter: [] }, action) => {
         ...state,
         loading: false,
         data: removeElements(state.data, action.payload.id),
-        filtrar: [],
+        filter: [],
+        isFilter: false,
         error: false,
       };
     case remove.FAILURE:
@@ -42,18 +46,21 @@ export const programming = (state = { data: [], filter: [] }, action) => {
         error: false,
       };
 
-    case filtrar.TRIGGER:
+    case filter.TRIGGER:
       return { ...state, loading: true, error: false };
-    case filtrar.SUCCESS:
+    case filter.SUCCESS:
       return {
         ...state,
         loading: false,
-        filtrar: filterElements(state.data, action.payload),
+        filter: filterElements(state.data, action.payload),
+        isFilter: true,
         error: false,
       };
-    case filtrar.FAILURE:
+    case filter.FAILURE:
       return { ...state, loading: false, error: true };
-    case filtrar.FULFILL:
+    case "@@redux-form/RESET":
+      return { ...state, filter: [], isFilter: false };
+    case filter.FULFILL:
       return {
         ...state,
         loading: false,

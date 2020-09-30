@@ -6,7 +6,7 @@ import { CgUnavailable } from "react-icons/cg";
 import { Input, Container, Button, Label, Card } from "../../../ui";
 
 const Programming = (props) => {
-  const { handleSubmit, submitting } = props;
+  const { handleSubmit, submitting, reset } = props;
   const [error, isError] = useState(false);
 
   return (
@@ -47,13 +47,23 @@ const Programming = (props) => {
             </Alert>
           )}
           <Button
-            className="btn btn-success btn-lg btn-block"
+            variant="primary"
             mt={20}
+            mr={10}
             fontSize={14}
             type="submit"
             disabled={submitting}
           >
             {submitting ? <Spinner animation="border" size="sm" /> : "Filtrar"}
+          </Button>
+
+          <Button
+            variant="outline-success"
+            mt={20}
+            fontSize={14}
+            onClick={reset}
+          >
+            Limpiar
           </Button>
         </Container>
       </form>
@@ -63,6 +73,7 @@ const Programming = (props) => {
 
 Programming.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
 };
 

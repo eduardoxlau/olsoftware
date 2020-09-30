@@ -3,11 +3,16 @@ export const removeElements = (elements, id) => {
 };
 
 export const filterElements = (elements, item) => {
-  return elements.filter((el) => el.user !== item.user);
+  console.log("busca->", item);
+  console.log(
+    "elements->",
+    elements.filter((el) => el.user === item.user)
+  );
+  return [...elements.filter((el) => el.user === item.user)];
 };
 
 export const addElements = (elements, item) => {
-  const elementExist = elements.find((el) => el.id == item.id);
+  const elementExist = elements.find((el) => el.id === item.id);
   return elementExist
     ? editElements(elements, item)
     : createElement(elements, item);

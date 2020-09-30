@@ -8,7 +8,7 @@ import ProgrammingModal from "../../../../components/forms/programming";
 import Filter from "../../../../components/forms/filterProgramming";
 
 const Programming = (props) => {
-  const { programmings, remove, loading } = props;
+  const { programmings, remove, loading, isFilter } = props;
   const [showModal, closeModal] = useState(false);
   const [user, setUser] = useState({});
 
@@ -45,7 +45,7 @@ const Programming = (props) => {
               <Container display="flex" alignItems="center">
                 <AiOutlineWallet size={25} color="#2046AE" />
                 <Label ml={10} color="#2046AE" fontSize={18}>
-                  Programación
+                  {isFilter ? "Resultado de la Busqueda..." : "Programación"}
                 </Label>
               </Container>
               <Container>
@@ -73,7 +73,7 @@ const Programming = (props) => {
                 </thead>
                 <tbody>
                   {programmings.map((item) => (
-                    <tr>
+                    <tr key={item.id}>
                       <td>{item.dateStart}</td>
                       <td>{item.dateEnd}</td>
                       <td>{item.user}</td>
@@ -86,7 +86,7 @@ const Programming = (props) => {
                         />
                       </td>
                       <td>
-                        {loading && user == item ? (
+                        {loading && user === item ? (
                           <Spinner animation="border" size="sm" />
                         ) : (
                           <AiFillDelete
@@ -113,6 +113,7 @@ const Programming = (props) => {
 
 Programming.propTypes = {
   programmings: PropTypes.array,
+  isFilter: PropTypes.bool,
   loading: PropTypes.bool,
   remove: PropTypes.func.isRequired,
 };
@@ -120,6 +121,7 @@ Programming.propTypes = {
 Programming.defaultProps = {
   programmings: [],
   loading: false,
+  isFilter: false,
 };
 
 export default Programming;

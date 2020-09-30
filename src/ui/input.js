@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import React, { useState } from "react";
+import React from "react";
 import { Field } from "redux-form";
 import { Form } from "react-bootstrap";
 
