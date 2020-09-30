@@ -10,7 +10,7 @@ const button = (props) => {
   return <UIButton {...props}>{children}</UIButton>;
 };
 
-const field = (props) => <Field component={button} {...props} />;
+const field = (props) => <Field name="button" component={button} {...props} />;
 
 export const Button = styled(field)`
   ${typography}
