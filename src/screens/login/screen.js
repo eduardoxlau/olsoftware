@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Card } from "../../ui";
+import { Container, Card, Label } from "../../ui";
 import bgLogin from "../../assets/images/loginBackGround.jpg";
 import Login from "../../components/forms/login";
 import Loading from "../../components/loading";
@@ -11,9 +11,24 @@ const App = (props) => {
     <Container width={1} height="100%">
       {loading ? <Loading /> : null}
       <Container
+        position="absolute"
+        zIndex="1"
+        left="30%"
+        top="60%"
+        textAlign="center"
+      >
+        <Label fontSize={22} color="white">
+          Aplicacion OLSoftware
+        </Label>
+        <Label fontSize={14} color="white">
+          Prueba Tecnica
+        </Label>
+      </Container>
+
+      <Container
         width="80%"
         height="90%"
-        bg="#b5af4c"
+        bg="#4f4703"
         borderBottomLeftRadius="90% 140%"
         borderBottomRightRadius="100% 196%"
       >
@@ -42,6 +57,9 @@ const App = (props) => {
       >
         <Login />
       </Card>
+      <Container textAlign="center" mt={20}>
+        Created by Rafael sanchez
+      </Container>
     </Container>
   );
 };
