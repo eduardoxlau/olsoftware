@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Spinner, Alert } from "react-bootstrap";
 import { required } from "redux-form-validators";
+import { useHistory } from "react-router-dom";
 
 import {
   Input,
@@ -14,11 +15,15 @@ import {
 
 const Login = (props) => {
   const { handleSubmit, submitting, invalid } = props;
+  const history = useHistory();
   const [error, isError] = useState(false);
+
   const handle = (data) => {
-    handleSubmit(data).catch(() => {
-      isError(true);
-    });
+    handleSubmit(data)
+      .then(() => history.push("/home"))
+      .catch(() => {
+        isError(true);
+      });
   };
   return (
     <Container p={50}>
