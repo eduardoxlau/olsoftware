@@ -1,10 +1,12 @@
 /* eslint-disable react/react-in-jsx-scope */
-import React from "react";
+import React, { useState } from "react";
 import { Field } from "redux-form";
 import { Form } from "react-bootstrap";
 
-const input = ({ input, meta, type, placeholder, min, max }) => {
+const InputDefault = (props) => {
+  const { input, meta, type, placeholder, min, max } = props;
   const { valid } = meta;
+
   return (
     <Form.Control
       style={{ borderColor: valid ? null : "red" }}
@@ -19,5 +21,5 @@ const input = ({ input, meta, type, placeholder, min, max }) => {
 };
 
 export const Input = (props) => (
-  <Field component={input} name="myField" {...props} />
+  <Field component={InputDefault} name="myField" {...props} />
 );

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Spinner, Alert } from "react-bootstrap";
 import { required } from "redux-form-validators";
-import { useHistory } from "react-router-dom";
-
+import PropTypes from "prop-types";
 import {
   Input,
   Container,
@@ -15,15 +14,12 @@ import {
 
 const Login = (props) => {
   const { handleSubmit, submitting, invalid } = props;
-  const history = useHistory();
   const [error, isError] = useState(false);
 
   const handle = (data) => {
-    handleSubmit(data)
-      .then(() => history.push("/home"))
-      .catch(() => {
-        isError(true);
-      });
+    handleSubmit(data).catch(() => {
+      isError(true);
+    });
   };
   return (
     <Container p={50}>
@@ -69,4 +65,9 @@ const Login = (props) => {
   );
 };
 
+Login.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  invalid: PropTypes.bool.isRequired,
+};
 export default Login;

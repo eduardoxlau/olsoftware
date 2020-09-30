@@ -1,7 +1,7 @@
 import { login } from "./actions";
 
 // eslint-disable-next-line import/prefer-default-export
-export const auth = (state = {}, action) => {
+export const auth = (state = { isAuth: false }, action) => {
   switch (action.type) {
     case login.TRIGGER:
       return { ...state, loading: true, isAuth: false, error: false };

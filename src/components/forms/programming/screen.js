@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Spinner, Alert } from "react-bootstrap";
 import { required } from "redux-form-validators";
+import PropTypes from "prop-types";
 import { FiUser } from "react-icons/fi";
 import { CgUnavailable } from "react-icons/cg";
 import { Input, Container, Button, Label } from "../../../ui";
@@ -68,6 +69,12 @@ const Programming = (props) => {
       </Modal.Footer>
     </form>
   );
+};
+
+Programming.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  invalid: PropTypes.bool.isRequired,
 };
 
 export default Programming;

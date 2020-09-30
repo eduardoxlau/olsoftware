@@ -1,14 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Login, Home } from "../screens/index";
 
-const Screens = () => {
-  return (
-    <Router>
-      <Route exact path="/" component={Login} />
-      <Route exact path="/Login" component={Login} />
-      <Route exact path="/Home" component={Home} />
-    </Router>
-  );
+const Screens = (props) => {
+  const { isAuth } = props;
+  return isAuth ? <Home /> : <Login />;
 };
 export default Screens;

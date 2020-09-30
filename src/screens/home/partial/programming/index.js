@@ -1,9 +1,16 @@
 import { connect } from "react-redux";
-import { getProgrammings } from "../../../../ducks/programming";
+import {
+  getProgrammings,
+  remove,
+  isLoading,
+} from "../../../../ducks/programming";
 import Programming from "./screen";
 
 const mapStateToProps = (state) => ({
   programmings: getProgrammings(state),
+  loading: isLoading(state),
 });
-
-export default connect(mapStateToProps, {})(Programming);
+const mapDispatchToProps = {
+  remove,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Programming);

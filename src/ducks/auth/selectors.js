@@ -8,6 +8,10 @@ export const isLoading = ({ auth }) => {
   return loading;
 };
 
+export const isAutheticate = ({ auth }) => {
+  const { isAuth } = auth;
+  return isAuth;
+};
 export const isError = ({ auth }) => {
   const { error } = auth;
   return error;
