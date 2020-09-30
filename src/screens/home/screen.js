@@ -1,11 +1,16 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
+import { IoMdExit } from "react-icons/io";
 import Navbar from "../../components/navbar";
 import { Container, Label, Card } from "../../ui";
 import Programming from "./partial/programming";
 
-const Home = () => {
+const Home = (props) => {
+  const { logout, user } = props;
   const [isHide, setHide] = useState(false);
 
   const openSidebar = () => {
@@ -20,18 +25,26 @@ const Home = () => {
         </Container>
         <Container width="100%">
           <Card
-            justifyContent="center"
+            justifyContent="space-between"
             bg="white"
             height={70}
             width="100%"
             display="flex"
+            flexDirection="row"
             p={30}
           >
             <Container height="100%" display="flex" alignItems="center">
               <FiMenu size={30} onClick={openSidebar} />
-              <Label ml={20} fontSize={18}>
+              <Label ml={10} fontSize={18}>
                 Prueba Frontend
               </Label>
+            </Container>
+            <Container height="100%" display="flex" alignItems="center">
+              <FaUserCircle size={30} />
+              <Label ml={20} mr={20} fontSize={16}>
+                {user.name}
+              </Label>
+              <IoMdExit onClick={logout} size={30} />
             </Container>
           </Card>
           <Route exact path="/home" component={Programming} />
@@ -41,4 +54,9 @@ const Home = () => {
     </Router>
   );
 };
+
+Home.propTypes = {
+  logout: PropTypes.func.isRequired,
+};
+
 export default Home;

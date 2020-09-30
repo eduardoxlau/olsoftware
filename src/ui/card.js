@@ -7,10 +7,12 @@ import {
   position,
   shadow,
   space,
+  flexbox,
 } from "styled-system";
 import { Card as uiCard } from "react-bootstrap";
 
 export const Card = styled(uiCard)`
+  ${flexbox}
   ${space}
   ${position}
   ${border}

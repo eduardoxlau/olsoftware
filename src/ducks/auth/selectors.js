@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/prefer-default-export
 export const getUser = ({ auth }) => {
-  return auth;
+  const { user } = auth;
+  return user;
 };
 
 export const isLoading = ({ auth }) => {

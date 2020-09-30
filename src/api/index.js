@@ -3,11 +3,6 @@ export const removeElements = (elements, id) => {
 };
 
 export const filterElements = (elements, item) => {
-  console.log("busca->", item);
-  console.log(
-    "elements->",
-    elements.filter((el) => el.user === item.user)
-  );
   return [...elements.filter((el) => el.user === item.user)];
 };
 
@@ -29,4 +24,14 @@ const editElements = (elements, item) => {
 const createElement = (elements, item) => {
   let element = { ...item, id: new Date().getTime() };
   return [...elements, element];
+};
+
+export const validateAdmin = (user) => {
+  console.log(user);
+  let admin = {
+    name: "Rafael sanchez",
+    email: "admin",
+    photo: "admin",
+  };
+  return user.user == "admin" && user.password == "admin" ? admin : null;
 };

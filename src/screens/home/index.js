@@ -1,4 +1,11 @@
 import { connect } from "react-redux";
 import Home from "./screen";
+import { getUser, logout } from "../../ducks/auth";
 
-export default connect()(Home);
+const mapStateToProps = (state) => ({
+  user: getUser(state),
+});
+const mapDispatchToProps = {
+  logout,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
