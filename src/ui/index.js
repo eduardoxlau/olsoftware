@@ -4,3 +4,4 @@ export * from "./input";
 export * from "./text";
 export * from "./button";
 export * from "./icon";
+export * from "./sidebar";

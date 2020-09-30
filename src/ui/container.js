@@ -7,9 +7,11 @@ import {
   space,
   position,
   flexbox,
+  typography,
 } from "styled-system";
 
 export const Container = styled.div`
+  ${typography}
   ${flexbox}
   ${border}
   ${layout}
