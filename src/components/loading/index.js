@@ -4,7 +4,7 @@ import { Container, Label } from "../../ui";
 
 const Loading = () => {
   return (
-    <Container position="absolute" width={1} height="100%">
+    <Container position="absolute" width={1} zIndex={2} height="100%">
       <Container position="absolute" zIndex={2} width="100%" height="100%">
         <Container
           display="flex"
