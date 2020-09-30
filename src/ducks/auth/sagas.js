@@ -8,11 +8,9 @@ const timeout = async () => {
 
 function* auth(action) {
   const { values } = action.payload;
-  console.log(values);
   yield put(login.request());
   try {
     yield call(timeout);
-    yield put(login.failure());
     yield put(login.success(values));
     yield put(login.fulfill(values));
   } catch (e) {
