@@ -4,7 +4,7 @@ import { addElements, removeElements, filterElements } from "../api";
 // eslint-disable-next-line no-undef
 
 const elements = [
-  { name: "Rafael", lastname: "sanchez", id: 1061750437, phone: 3136823059 },
+  { name: "Rafael", lastname: "sanchez", id: 1061750437, phone: 3136823058 },
   { name: "Claudia", lastname: "paz", id: 1061750237, phone: 3136823399 },
   { name: "jennifer", lastname: "sandoval", id: 1561750737, phone: 3536823099 },
   { name: "paola", lastname: "paz", id: 1061750736, phone: 3136823096 },
