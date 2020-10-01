@@ -4,29 +4,29 @@ import PropTypes from "prop-types";
 import { Table, Button, Modal, Spinner, Row, Col } from "react-bootstrap";
 import { AiOutlineEdit, AiFillDelete } from "react-icons/ai";
 import { Card, Container, Label } from "../../../../ui";
-import ModalSubmit from "../../../../components/forms/profile";
-import Filter from "../../../../components/forms/filterProfile";
+import ModalSubmit from "../../../../components/forms/user";
+import Filter from "../../../../components/forms/filterUser";
 
 const Programming = (props) => {
-  const { profiles, remove, loading, isFilter } = props;
+  const { users, remove, loading, isFilter } = props;
   const [showModal, closeModal] = useState(false);
-  const [profile, setProfile] = useState({});
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     closeModal(false);
-  }, [profiles]);
+  }, [users]);
 
   const handleModal = () => {
     closeModal(!showModal);
   };
 
   const openModal = (item) => {
-    setProfile(item);
+    setUser(item);
     handleModal();
   };
 
   const removeElement = (item) => {
-    setProfile(item);
+    setUser(item);
     remove(item);
   };
 
@@ -45,7 +45,7 @@ const Programming = (props) => {
               <Container display="flex" alignItems="center">
                 <AiOutlineEdit size={25} color="#2046AE" />
                 <Label ml={10} color="#2046AE" fontSize={18}>
-                  {isFilter ? "Resultado de la Busqueda..." : "Perfiles"}
+                  {isFilter ? "Resultado de la Busqueda..." : "Usuarios"}
                 </Label>
               </Container>
               <Container>
@@ -56,7 +56,7 @@ const Programming = (props) => {
                   Crear
                 </Button>
                 <Modal show={showModal} onHide={handleModal}>
-                  <ModalSubmit profile={profile} initialValues={profile} />
+                  <ModalSubmit user={user} initialValues={user} />
                 </Modal>
               </Container>
             </Container>
@@ -64,20 +64,20 @@ const Programming = (props) => {
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>Campo 1</th>
-                    <th>Campo 2</th>
-                    <th>Campo 3</th>
-                    <th>Campo 4</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Identificacion</th>
+                    <th>Email</th>
                     <th colSpan="2">Acción</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {profiles.map((item) => (
+                  {users.map((item) => (
                     <tr key={item.id}>
-                      <td>{item.campo1}</td>
-                      <td>{item.campo2}</td>
-                      <td>{item.campo3}</td>
-                      <td>{item.campo4}</td>
+                      <td>{item.nombres}</td>
+                      <td>{item.apellidos}</td>
+                      <td>{item.identificacion}</td>
+                      <td>{item.email}</td>
                       <td>
                         <AiOutlineEdit
                           color={loading ? "#cecece" : "#1D43AD"}
@@ -86,7 +86,7 @@ const Programming = (props) => {
                         />
                       </td>
                       <td>
-                        {loading && profile === item ? (
+                        {loading && user === item ? (
                           <Spinner animation="border" size="sm" />
                         ) : (
                           <AiFillDelete
@@ -112,14 +112,14 @@ const Programming = (props) => {
 };
 
 Programming.propTypes = {
-  profiles: PropTypes.array,
+  users: PropTypes.array,
   isFilter: PropTypes.bool,
   loading: PropTypes.bool,
   remove: PropTypes.func.isRequired,
 };
 
 Programming.defaultProps = {
-  profiles: [],
+  users: [],
   loading: false,
   isFilter: false,
 };

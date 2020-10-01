@@ -14,6 +14,7 @@ const persistConfig = {
     createWhitelistFilter("programming", ["data"]),
     createWhitelistFilter("gestion", ["data"]),
     createWhitelistFilter("profile", ["data"]),
+    createWhitelistFilter("user", ["data"]),
   ],
 };
 

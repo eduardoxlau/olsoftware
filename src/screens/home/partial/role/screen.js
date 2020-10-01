@@ -4,29 +4,29 @@ import PropTypes from "prop-types";
 import { Table, Button, Modal, Spinner, Row, Col } from "react-bootstrap";
 import { AiOutlineEdit, AiFillDelete } from "react-icons/ai";
 import { Card, Container, Label } from "../../../../ui";
-import ModalSubmit from "../../../../components/forms/profile";
-import Filter from "../../../../components/forms/filterProfile";
+import ModalSubmit from "../../../../components/forms/role";
+import Filter from "../../../../components/forms/filterRole";
 
 const Programming = (props) => {
-  const { profiles, remove, loading, isFilter } = props;
+  const { roles, remove, loading, isFilter } = props;
   const [showModal, closeModal] = useState(false);
-  const [profile, setProfile] = useState({});
+  const [role, setRole] = useState({});
 
   useEffect(() => {
     closeModal(false);
-  }, [profiles]);
+  }, [roles]);
 
   const handleModal = () => {
     closeModal(!showModal);
   };
 
   const openModal = (item) => {
-    setProfile(item);
+    setRole(item);
     handleModal();
   };
 
   const removeElement = (item) => {
-    setProfile(item);
+    setRole(item);
     remove(item);
   };
 
@@ -45,7 +45,7 @@ const Programming = (props) => {
               <Container display="flex" alignItems="center">
                 <AiOutlineEdit size={25} color="#2046AE" />
                 <Label ml={10} color="#2046AE" fontSize={18}>
-                  {isFilter ? "Resultado de la Busqueda..." : "Perfiles"}
+                  {isFilter ? "Resultado de la Busqueda..." : "Roles"}
                 </Label>
               </Container>
               <Container>
@@ -56,7 +56,7 @@ const Programming = (props) => {
                   Crear
                 </Button>
                 <Modal show={showModal} onHide={handleModal}>
-                  <ModalSubmit profile={profile} initialValues={profile} />
+                  <ModalSubmit role={role} initialValues={role} />
                 </Modal>
               </Container>
             </Container>
@@ -72,7 +72,7 @@ const Programming = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {profiles.map((item) => (
+                  {roles.map((item) => (
                     <tr key={item.id}>
                       <td>{item.campo1}</td>
                       <td>{item.campo2}</td>
@@ -86,7 +86,7 @@ const Programming = (props) => {
                         />
                       </td>
                       <td>
-                        {loading && profile === item ? (
+                        {loading && role === item ? (
                           <Spinner animation="border" size="sm" />
                         ) : (
                           <AiFillDelete
@@ -112,14 +112,14 @@ const Programming = (props) => {
 };
 
 Programming.propTypes = {
-  profiles: PropTypes.array,
+  roles: PropTypes.array,
   isFilter: PropTypes.bool,
   loading: PropTypes.bool,
   remove: PropTypes.func.isRequired,
 };
 
 Programming.defaultProps = {
-  profiles: [],
+  roles: [],
   loading: false,
   isFilter: false,
 };

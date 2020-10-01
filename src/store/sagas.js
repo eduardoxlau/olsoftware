@@ -4,6 +4,8 @@ import { authWatcherSaga } from "../ducks/auth";
 import { programmingWatcherSaga } from "../ducks/programming";
 import { gestionWatcherSaga } from "../ducks/gestion";
 import { profileWatcherSaga } from "../ducks/profile";
+import { roleWatcherSaga } from "../ducks/role";
+import { userWatcherSaga } from "../ducks/user";
 
 export default function* rootSaga() {
   yield all([
@@ -15,5 +17,7 @@ export default function* rootSaga() {
     programmingWatcherSaga(),
     gestionWatcherSaga(),
     profileWatcherSaga(),
+    roleWatcherSaga(),
+    userWatcherSaga(),
   ]);
 }

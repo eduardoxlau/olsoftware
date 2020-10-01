@@ -10,6 +10,8 @@ import { Container, Label, Card } from "../../ui";
 import Programming from "./partial/programming";
 import Gestion from "./partial/gestion";
 import Profile from "./partial/profile";
+import Role from "./partial/role";
+import User from "./partial/user";
 
 const Home = (props) => {
   const { logout, user } = props;
@@ -53,6 +55,8 @@ const Home = (props) => {
           <Route exact path="/programacion" component={Programming} />
           <Route path="/gestion" component={Gestion} />
           <Route path="/perfiles" component={Profile} />
+          <Route path="/roles" component={Role} />
+          <Route path="/usuarios" component={User} />
         </Container>
       </Container>
     </Router>

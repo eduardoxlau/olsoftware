@@ -75,9 +75,9 @@ const Programming = (props) => {
                   {gestiones.map((item) => (
                     <tr key={item.id}>
                       <td>{item.campo1}</td>
-                      <td>{item.campo1}</td>
-                      <td>{item.campo1}</td>
-                      <td>{item.campo1}</td>
+                      <td>{item.campo2}</td>
+                      <td>{item.campo3}</td>
+                      <td>{item.campo4}</td>
                       <td>
                         <AiOutlineEdit
                           color={loading ? "#cecece" : "#1D43AD"}

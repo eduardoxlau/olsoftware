@@ -35,10 +35,4 @@ export const MenuSidebar = [
     title: "Usuarios",
     route: "/usuarios",
   },
-  {
-    id: 6,
-    icon: <HiOutlineDocumentReport color="white" size={30} />,
-    title: "Reportes",
-    route: "/reportes",
-  },
 ];
