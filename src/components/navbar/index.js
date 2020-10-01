@@ -1,5 +1,6 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { BsCircleFill } from "react-icons/bs";
 import PropTypes from "prop-types";
 import { Sidebar, Label, Container } from "../../ui";
@@ -36,16 +37,18 @@ const Navbar = ({ hide }) => {
               marginLeft={-10}
             >
               <Nav.Item>
-                <Nav.Link href={item.route}>
-                  {item.icon}
-                  <Label
-                    marginLeft={25}
-                    display={hide ? "none" : "inline-block"}
-                    color="white"
-                  >
-                    {item.title}
-                  </Label>
-                </Nav.Link>
+                <Link to={item.route}>
+                  <Container pt={10} pb={10} pl={20}>
+                    {item.icon}
+                    <Label
+                      marginLeft={25}
+                      display={hide ? "none" : "inline-block"}
+                      color="white"
+                    >
+                      {item.title}
+                    </Label>
+                  </Container>
+                </Link>
               </Nav.Item>
             </Container>
           );

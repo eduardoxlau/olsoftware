@@ -51,8 +51,8 @@ const Home = (props) => {
               <IoMdExit onClick={logout} size={30} />
             </Container>
           </Card>
-          <Route exact path="/" component={Programming} />
-          <Route exact path="/programacion" component={Programming} />
+          <Route exact path="/" component={User} />
+          <Route path="/programacion" component={Programming} />
           <Route path="/gestion" component={Gestion} />
           <Route path="/perfiles" component={Profile} />
           <Route path="/roles" component={Role} />

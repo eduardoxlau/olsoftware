@@ -3,7 +3,15 @@ export const removeElements = (elements, id) => {
 };
 
 export const filterElements = (elements, item) => {
-  return [...elements.filter((el) => el.campo1 === item.campo1)];
+  let data = [];
+  elements.filter((el) => {
+    Object.keys(item).forEach((key) => {
+      if (el[key] == item[key]) {
+        if (!data.includes(el)) data.push(el);
+      }
+    });
+  });
+  return data;
 };
 
 export const addElements = (elements, item) => {
