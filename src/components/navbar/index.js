@@ -36,7 +36,7 @@ const Navbar = ({ hide }) => {
               marginLeft={-10}
             >
               <Nav.Item>
-                <Nav.Link href="/home">
+                <Nav.Link href={item.route}>
                   {item.icon}
                   <Label
                     marginLeft={25}

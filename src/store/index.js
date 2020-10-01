@@ -12,6 +12,8 @@ const persistConfig = {
   transforms: [
     createWhitelistFilter("auth", ["user", "isAuth"]),
     createWhitelistFilter("programming", ["data"]),
+    createWhitelistFilter("gestion", ["data"]),
+    createWhitelistFilter("profile", ["data"]),
   ],
 };
 

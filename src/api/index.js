@@ -3,7 +3,7 @@ export const removeElements = (elements, id) => {
 };
 
 export const filterElements = (elements, item) => {
-  return [...elements.filter((el) => el.user === item.user)];
+  return [...elements.filter((el) => el.campo1 === item.campo1)];
 };
 
 export const addElements = (elements, item) => {

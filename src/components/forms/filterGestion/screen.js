@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { FiUser, FiSearch } from "react-icons/fi";
 import { CgUnavailable } from "react-icons/cg";
 import { AiFillBulb, AiFillAppstore } from "react-icons/ai";
-
 import { Input, Container, Button, Label, Card } from "../../../ui";
 
 const Programming = (props) => {
@@ -22,22 +21,28 @@ const Programming = (props) => {
       <form onSubmit={handleSubmit}>
         <Container>
           <Container position="relative" mb={10}>
-            <Input name="dateStart" type="date" placeholder="Fecha inicio" />
+            <Container position="absolute" right={20} top="5px">
+              <AiFillBulb />
+            </Container>
+            <Input name="campo1" placeholder="Campo 1" />
           </Container>
           <Container position="relative" mb={10}>
-            <Input type="date" name="dateEnd" placeholder="Fecha fin" />
+            <Container position="absolute" right={20} top="5px">
+              <AiFillAppstore />
+            </Container>
+            <Input name="campo2" placeholder="Campo 2" />
           </Container>
           <Container position="relative" mb={10}>
             <Container position="absolute" right={20} top="5px">
               <FiUser />
             </Container>
-            <Input name="user" placeholder="Usuario" />
+            <Input name="campo3" placeholder="Campo 3" />
           </Container>
           <Container position="relative" mb={10}>
             <Container position="absolute" right={20} top="5px">
               <CgUnavailable />
             </Container>
-            <Input name="isActive" placeholder="Activo" />
+            <Input name="campo4" placeholder="Campo 4" />
           </Container>
         </Container>
         <Container>
