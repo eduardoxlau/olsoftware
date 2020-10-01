@@ -52,6 +52,7 @@ const Home = (props) => {
             </Container>
           </Card>
           <Route exact path="/" component={User} />
+          <Route exact path="/olsoftware" component={User} />
           <Route path="/programacion" component={Programming} />
           <Route path="/gestion" component={Gestion} />
           <Route path="/perfiles" component={Profile} />
